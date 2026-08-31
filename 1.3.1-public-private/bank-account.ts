@@ -1,10 +1,10 @@
 export default class BankAccount {
     accountHolder: string = "";
-    balance: number = 0;
+    private balance: number = 0;
 
-    constructor(accountHolder: string, initialBalance: number) {
+    constructor(accountHolder: string, balance: number) {
         this.accountHolder = accountHolder;
-        this.balance = initialBalance;
+        this.balance = balance;
     }
 
     deposit(amount: number): void {

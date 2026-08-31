@@ -1,15 +1,19 @@
 export default class BankAccount {
     accountHolder: string = "";
-    balance: number = 0;
+    private _balance: number = 0;
 
     constructor(accountHolder: string, initialBalance: number) {
         this.accountHolder = accountHolder;
-        this.balance = initialBalance;
+        this._balance = initialBalance;
+    }
+
+    get balance(): number {
+        return this._balance;
     }
 
     deposit(amount: number): void {
         if(amount > 0) {
-            this.balance = this.balance + amount
+            this._balance = this._balance + amount
         } else {
             return console.log("Invalid deposit amount");
         }
@@ -17,8 +21,8 @@ export default class BankAccount {
 
     withdraw(amount: number): void {
         if(amount > 0) {
-            if(this.balance - amount >= 0) {
-                this.balance = this.balance - amount
+            if(this._balance - amount >= 0) {
+                this._balance = this._balance - amount
             } else {
                 return console.log("Not enough account balance");
             }
@@ -28,7 +32,7 @@ export default class BankAccount {
     }
 
     getBalance(): number {
-        return this.balance;
+        return this._balance;
     }
 
     showInfo(): void {
