@@ -11,17 +11,19 @@ async function main() {
     });
 
     const name = await rl.question("Enter your name: ");
-    // const books = [{id: 1, title: "Book 1", author: "Author 1"}, {id: 2, title: "Book 2", author: "Author 2"}, {id: 3, title: "Book 3", author: "Author 3"}];
-    // const members = [{id: 1, name: "Member 1"}, {id: 2, name: "Member 2"}, {id: 3, name: "Member 3"}];
-    // const member1 = new member(1, name);
-    // const library1 = new library(books, members);
-    // library1.addMember(member1);
+    const books = [{id: 1, title: "Title: Wise-mans Book", author: "Author: A Wise-man"}, {id: 2, title: "Title: The Castle Witch", author: "Author: M.K"}, {id: 3, title: "Title: The Three Wanderers", author: "Author: Alex Wander"}];
+    const members = [{id: 1, name: "Mike Lyson"}, {id: 2, name: "Robin Sonville"}, {id: 3, name: "Anonymous"}];
+    // const books = [{}];
+    // const members = [{}];
+    const member1 = new member(members.length + 1, name);
+    const library1 = new library(books, members);
+    library1.addMember(member1);
     for(let i = 1; i = 1;) {
         console.log("--- Library ---");
         console.log("1. Show books");
         console.log("2. Add book");
         console.log("3. Show members");
-        console.log("4. Register books");
+        console.log("4. Register member");
         console.log("5. Borrow book");
         console.log("6. Return book");
         console.log("7. Show members borrowed books");
@@ -29,31 +31,39 @@ async function main() {
         const menu = await rl.question("Choose a option: ");
 
         if(menu === "1") {
-            console.log("Show books");
+            library1.showBooks();
         }
 
         if(menu === "2") {
-            console.log("Add book");
+            const addBookName = await rl.question("Enter Book Title: ");
+            const addBookAuthor = await rl.question("Enter Book Author: ");
+            library1.addBook(new book(books.length + 1, `Title: ${addBookName}`, `Author: ${addBookAuthor}`));
         }
 
         if(menu === "3") {
-            console.log("Show members");
+            library1.showMembers();
         }
 
         if(menu === "4") {
-            console.log("Register books");
+            const addMemberId = Number(await rl.question("Enter Member Id: "));
+            const addMemberName = await rl.question("Enter Member Name: ");
+            library1.addMember(new member(addMemberId, addMemberName));
         }
 
         if(menu === "5") {
-            console.log("Borrow book");
+            const borrowMemberId = Number(await rl.question("Enter Your Member Id: "));
+            const borrowBookId = Number(await rl.question("Enter Book Id to Borrow: "));
+            library1.borrowBook(borrowMemberId, borrowBookId);
         }
 
         if(menu === "6") {
-            console.log("Return book");
+            const returnMemberId = Number(await rl.question("Enter Your Member Id: "));
+            const returnBookId = Number(await rl.question("Enter Book Id to Return: "));
+            library1.returnBook(returnMemberId, returnBookId);
         }
 
         if(menu === "7") {
-            console.log("Show members borrowed books");
+            member1.showBorrowedBooks();
         }
 
         if(menu === "8") {
