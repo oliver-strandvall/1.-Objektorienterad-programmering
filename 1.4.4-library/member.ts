@@ -19,37 +19,30 @@ export default class member {
     }
 
     borrowBook(book: book): void {
-        console.log(book.available);
         if(book.available) {
-            // book.borrow();
+            book.borrow(book);
             this._borrowedBooks.push(book);
-            console.log("Successfully Borrowed Book");
         } else {
             console.log("Book Unavailable")
         }
     }
 
     returnBook(book: book): void {
-        if(!book.available) {
-            this._borrowedBooks.forEach((borrowedBook, index) => {
-                if (borrowedBook.title === book.title) {
-                    // borrowedBook.returnBook();
-                    this._borrowedBooks.splice(index, 1);
-                }
-            });
-            console.log("Successfully Returned Book");
-        } else {
-            console.log("Book is Already Available")
-        }
+        this._borrowedBooks.forEach((borrowedBook, index) => {
+            if (borrowedBook.id === book.id) {
+                book.returnBook(book);
+                this._borrowedBooks.splice(index, 1);
+            }
+        });
     }
 
-    showBorrowedBooks(): void {
+    showBorrowedBooks(id: number): void {
         if(this._borrowedBooks.length <= 0) {
             console.log("Your Borrowed Books will be displayed here");
         } else {
             console.log("--- Borrowed Books ---");
             this._borrowedBooks.forEach((book) => {
-                console.log("Title: " + book.title + " - Author: " + book.author);
+                console.log("Id: " + book.id + " - Title: " + book.title + " - Author: " + book.author);
             });
         }
     }

@@ -11,11 +11,11 @@ export default class library {
     }
 
     addBook(book: book): void {
-        if(!book.title && !book.author) {
-            console.log("Invalid Title or Author");
+        if(!book.id && !book.title && !book.author) {
+            console.log("Invalid Id, Title or Author");
         } else {
             this._books.push(book);
-            console.log("Successfully Added Book");
+            console.log("Added Book Succesfully");
         }
     }
 
@@ -24,7 +24,7 @@ export default class library {
             console.log("Invalid Id or Name");
         } else {
             this._members.push(member);
-            console.log("Successfully Added Member");
+            console.log("Added Member Succesfully");
         }
     }
 
@@ -38,28 +38,28 @@ export default class library {
 
     borrowBook(memberId: number, bookId: number): void {
         if(!memberId && !bookId) {
-            console.log("Failed to Borrow Book, Check Member and Book Id");
+            console.log("Invalid Member or Book Id");
         } else {
         const member = this.findMember(memberId);
         const book = this.findBook(bookId);
             if(member && book) {
                 member.borrowBook(book);
             } else {
-                console.log("Failed to Borrow Book, Check Member and Book Id");
+                console.log("Invalid Member or Book Id");
             }
         }
     }
 
     returnBook(memberId: number, bookId: number): void {
         if(!memberId && !bookId) {
-            console.log("Failed to Return Book, Check Member and Book Id");
+            console.log("Invalid Member or Book Id");
         } else {
         const member = this.findMember(memberId);
         const book = this.findBook(bookId);
             if(member && book) {
                 member.returnBook(book);
             } else {
-                console.log("Failed to Return Book, Check Member and Book Id");
+                console.log("Invalid Member or Book Id");
             }
         }
     }
@@ -67,14 +67,14 @@ export default class library {
     showBooks(): void {
         console.log("--- Books ---");
         this._books.forEach(book => {
-            console.log(book.id + " - " + book.title + " - " + book.author + " - " + book.available)
+            console.log("Id: " + book.id + " - Title: " + book.title + " - Author: " + book.author + " - Available: " + book.available);
         });
     }
 
     showMembers(): void {
         console.log("--- Members ---");
         this._members.forEach(member => {
-            console.log(member.id + " - " + member.name)
+            console.log("Id: " + member.id + " - Name: " + member.name);
         });
     }
 }

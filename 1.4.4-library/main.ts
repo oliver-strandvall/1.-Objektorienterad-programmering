@@ -10,12 +10,13 @@ async function main() {
         output: process.stdout,
     });
 
-    const name = await rl.question("Enter your name: ");
-    const books = [{id: 1, title: "Title: Wise-mans Book", author: "Author: A Wise-man"}, {id: 2, title: "Title: The Castle Witch", author: "Author: M.K"}, {id: 3, title: "Title: The Three Wanderers", author: "Author: Alex Wander"}];
-    const members = [{id: 1, name: "Mike Lyson"}, {id: 2, name: "Robin Sonville"}, {id: 3, name: "Anonymous"}];
-    // const books = [{}];
-    // const members = [{}];
-    const member1 = new member(members.length + 1, name);
+    console.log("Welcome to The Library! Follow The Steps Bellow to Create a Account And Get Started");
+    const userId = Number(await rl.question("Enter a Id: "));
+    const name = await rl.question("Enter a Name: ");
+    const books = [new book(1, "Wise-mans", "A Wise Man"), new book(2, "The Castle Witch", "M.K"), new book(3, "The Three Wanderers", "Alex Wander")]
+    const members = [new member(1, "Mike Lyson"), new member(2, "Robin Sonville"), new member(3, "Anonymous")]
+    const member1 = new member(userId, name);
+    
     const library1 = new library(books, members);
     library1.addMember(member1);
     for(let i = 1; i = 1;) {
@@ -35,9 +36,10 @@ async function main() {
         }
 
         if(menu === "2") {
+            const addBookId = Number(await rl.question("Enter Book Id: "));
             const addBookName = await rl.question("Enter Book Title: ");
             const addBookAuthor = await rl.question("Enter Book Author: ");
-            library1.addBook(new book(books.length + 1, `Title: ${addBookName}`, `Author: ${addBookAuthor}`));
+            library1.addBook(new book(addBookId, addBookName, addBookAuthor));
         }
 
         if(menu === "3") {
@@ -63,7 +65,8 @@ async function main() {
         }
 
         if(menu === "7") {
-            member1.showBorrowedBooks();
+            const showBorrowedForId = Number(await rl.question("Enter Id to Show Borrowed Books For: "));
+            member1.showBorrowedBooks(showBorrowedForId);
         }
 
         if(menu === "8") {

@@ -27,13 +27,13 @@ export default class book {
         return this._available;
     }
 
-    borrow(): void {
-        if (this._available) {
-            this._available = false;
-        }
+    borrow(book: book): void {
+        book._available = false;
+        console.log("Book Borrowed Succesfully");
     }
 
-    returnBook(): void {
-        this._available = true;
+    returnBook(book: book): void {
+        book._available = true;
+        console.log("Book Returned Successfully");
     }
 }
