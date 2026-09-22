@@ -65,8 +65,7 @@ async function main() {
         }
 
         if(menu === "7") {
-            const showBorrowedForId = Number(await rl.question("Enter Id to Show Borrowed Books For: "));
-            member1.showBorrowedBooks(showBorrowedForId);
+            member1.showBorrowedBooks();
         }
 
         if(menu === "8") {

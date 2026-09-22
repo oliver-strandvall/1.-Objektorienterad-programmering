@@ -36,7 +36,7 @@ export default class member {
         });
     }
 
-    showBorrowedBooks(id: number): void {
+    showBorrowedBooks(): void {
         if(this._borrowedBooks.length <= 0) {
             console.log("Your Borrowed Books will be displayed here");
         } else {
