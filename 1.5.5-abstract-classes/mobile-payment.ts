@@ -9,6 +9,6 @@ export default class MobilePayment extends PaymentMethod {
     }
 
     pay(amount: number) {
-        console.log("Paid " + amount + " With Mobile Payment")
+        console.log("Paid " + amount + " € With Mobile Payment")
     }
 }
