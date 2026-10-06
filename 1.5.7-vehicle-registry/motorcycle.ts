@@ -10,9 +10,6 @@ export default class Motorcycle extends Vehicle {
 
     getDescription(): void {
         console.log(`Motorcycle Details:`);
-        console.log(`
-            Horsepower: ${this.horsePower}, Weight: ${this.weight},
-            Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Engine Capacity: ${this._engineCapacity}
-        `)
+        console.log(`Brand: ${this.brand}, Model: ${this.model}, Registernumber: ${this.registerNumber}, Modelyear: ${this.modelYear}, Horsepower: ${this.horsePower}, Weight: ${this.weight}, Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Engine Capacity: ${this._engineCapacity}`)
     }
 }

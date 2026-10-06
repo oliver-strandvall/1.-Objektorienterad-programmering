@@ -10,9 +10,6 @@ export default class Truck extends Vehicle {
 
     getDescription(): void {
         console.log(`Semi Truck Details:`);
-        console.log(`
-            Horsepower: ${this.horsePower}, Weight: ${this.weight},
-            Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Engine Torque: ${this._engineTorque}
-        `)
+        console.log(`Brand: ${this.brand}, Model: ${this.model}, Registernumber: ${this.registerNumber}, Modelyear: ${this.modelYear}, Horsepower: ${this.horsePower}, Weight: ${this.weight}, Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Engine Torque: ${this._engineTorque}`)
     }
 }

@@ -6,6 +6,7 @@ export default class VehicleRegistry {
 
     addVehicle(vehicle: Vehicle): void {
         this.vehicles.push(vehicle);
+        console.log("Vehicle Added Succesfully");
     }
 
     showVehicles(): void {
@@ -16,11 +17,11 @@ export default class VehicleRegistry {
 
     searchVehicles(registerNumber: string): void {
         for (const vehicle of this.vehicles) {
-            if(vehicle.registerNumber == registerNumber) {
-                console.log("Vehicle Found!");
-            } else {
-                console.log("Vehicle Not Found");
+            if(vehicle.registerNumber === registerNumber) {
+                vehicle.getDescription();
+                return
             }
         }
+        console.log(`No Vehicle With Registernumber ${registerNumber} Found`);
     }
 }

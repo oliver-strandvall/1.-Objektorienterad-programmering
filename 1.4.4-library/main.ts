@@ -3,7 +3,6 @@ import library from "./library.ts";
 import book from "./book.ts";
 import member from "./member.ts";
 
-
 async function main() {
     const rl = createInterface({
         input: process.stdin,

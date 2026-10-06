@@ -10,9 +10,6 @@ export default class Car extends Vehicle {
 
     getDescription(): void {
         console.log(`Car Details:`);
-        console.log(`
-            Horsepower: ${this.horsePower}, Weight: ${this.weight},
-            Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Top Speed: ${this._topSpeed}
-        `)
+        console.log(`Brand: ${this.brand}, Model: ${this.model}, Registernumber: ${this.registerNumber}, Modelyear: ${this.modelYear}, Horsepower: ${this.horsePower}, Weight: ${this.weight}, Average Fuel Consumption(L/100KM): ${this.avgFuelConsumption}, Top Speed: ${this._topSpeed}`)
     }
 }
