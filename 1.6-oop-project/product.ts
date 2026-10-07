@@ -27,7 +27,20 @@ export default class Product {
         return this._available;
     }
 
-    buy(): void {
+    set available(value: number) {
+        this._available = value;
+    }
 
+    // buy(product: Product): void {
+    //     this.available = this.available - 1
+    // }
+
+    buy(): boolean {
+        if (this._available <= 0) {
+            return false;
+        }
+
+        this.available = this._available - 1;
+        return true;
     }
 }
